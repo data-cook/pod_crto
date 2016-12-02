@@ -29,6 +29,7 @@ library(tidyr)
 g.povprecna.placa
 ```
 
+## Malo drugače
 ```{r "01 povprecne place", message=F, echo=F, warning=F, fig.width = 12, fig.asp = 0.58, out.width="95%", fig.align='center'}
 g01.povprecna.placa
 ```
