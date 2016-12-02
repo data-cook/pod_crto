@@ -5,8 +5,7 @@ load(file = "./data/Place_2010_2014.RData")
 source("./functions/ggplot_tema.R")
 
 poslanci <- place.2010.2014 %>%
-  filter(opis_delovnega_mesta_z370opis == "POSLANEC" & mesecev != 0 & placa > 0) %>%
-  mutate(povprecna.placa = placa / mesecev)
+  filter(opis_delovnega_mesta_z370opis == "POSLANEC" & mesecev != 0 & placa > 0)
 
 
 povprecna.placa.leto <- poslanci %>%
