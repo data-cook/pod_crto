@@ -14,6 +14,7 @@ poslanci <- poslanci %>%
 poslanci <- poslanci %>%
   rename(Leto = leto_obdobja)
 
+poslanci$Leto <- as.factor(poslanci$Leto)
 
 povprecna.placa.leto <- poslanci %>%
   mutate(povprecna.placa = placa / mesecev) %>%
@@ -33,12 +34,12 @@ ggsave("./Place/grafi/g.povprecna.placa.png", g.povprecna.placa, width = 306, he
 
 
 
-g01.povprecna.placa <- ggplot(poslanci, aes(x=as.factor(Leto), y=`Povprečna bruto plača v €`)) +
-  geom_violin(aes(fill = as.factor(Leto))) +
+g01.povprecna.placa <- ggplot(poslanci, aes(x=Leto, y=`Povprečna bruto plača v €`)) +
+  geom_violin(aes(fill = Leto)) +
   geom_jitter(height = 0,size = 1.5 ) +
   scale_fill_viridis(discrete = T, begin = 0.3, end = 0.6)+
   facet_wrap(~Leto, scales = "free_x", nrow = 1) +
-  geom_label(data = povprecna.placa.leto, aes(x = as.factor(Leto),
+  geom_label(data = povprecna.placa.leto, aes(x = Leto,
                                               label = paste("Povprečna plača\n",`Povprečna bruto plača v €`)))+
   labs(title = "Povprečna mesečna plača poslanca po letih",
        subtitle="",
