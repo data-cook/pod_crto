@@ -14,10 +14,14 @@ povprecna.placa.leto <- poslanci %>%
   summarize(povprecna.placa = round(mean(povprecna.placa, na.rm= T),0)) %>%
   select(Leto = leto_obdobja, `Povprečna bruto plača v €` = povprecna.placa)
 
-ggplot(povprecna.placa.leto, aes(x=Leto, y=`Povprečna bruto plača v €`)) +
+g.povprecna.placa <- ggplot(povprecna.placa.leto, aes(x=Leto, y=`Povprečna bruto plača v €`)) +
   geom_bar(stat="identity") +
   geom_label(aes(label=paste(`Povprečna bruto plača v €`, "€"))) +
   labs(title = "Povprečna mesečna plača poslanca po letih",
        subtitle="",
        caption = "Vir podatkov:\nhttps://podcrto.si/podatkovne-zbirke/\nhttp://resources.podcrto.si/dodatkizaobjavo.rar") +
   datacook_theme()
+
+ggsave("./Place/grafi/g.povprecna.placa.png", g.povprecna.placa, width = 306, height = 142, units = "mm", dpi = 300)
+
+save.image(file = "./Place/data/Poslanske_place.RData")

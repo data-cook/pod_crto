@@ -1,0 +1,29 @@
+---
+title: "Poslanske plače"
+subtitle: "Pod črto"
+author: "Toni Gril, Primož Dolžan"
+date: "`r Sys.Date()`"
+output:
+  tint::tintHtml: 
+     self_contained: TRUE
+#bibliography: skeleton.bib
+link-citations: no
+---
+
+```{r setup, include=FALSE}
+library(tint)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tint'))
+options(htmltools.dir.version = FALSE)
+source("../../functions/ggplot_tema.R")
+load(file = "../data/Poslanske_place.RData")
+library(tidyverse)
+library(forcats)
+library(tidyr)
+```
+
+# Povprečne poslanske plače
+
+```{r "povprečne plače", message=F, echo=F, warning=F, fig.width = 12, fig.asp = 0.58, out.width="95%", fig.align='center'}
+g.povprecna.placa
+```
