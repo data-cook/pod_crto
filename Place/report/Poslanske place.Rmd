@@ -1,5 +1,5 @@
 ---
-title: "Poslanske plače"
+title: "Višina plač in dodatkov vodilnih uslužbencev v javnem sektorju v 2010 – 2014"
 subtitle: "Pod črto"
 author: ""
 date: "`r Sys.Date()`"

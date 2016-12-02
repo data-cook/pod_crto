@@ -1,4 +1,4 @@
-# Poslanske plače
+# Višina plač in dodatkov vodilnih uslužbencev v javnem sektorju v 2010 – 2014
   
 `r Sys.Date()`  
 
