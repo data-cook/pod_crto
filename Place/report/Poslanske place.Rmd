@@ -6,6 +6,7 @@ date: "`r Sys.Date()`"
 output:
   tint::tintHtml: 
      self_contained: TRUE
+     keep_md: true
 #bibliography: skeleton.bib
 link-citations: no
 ---
