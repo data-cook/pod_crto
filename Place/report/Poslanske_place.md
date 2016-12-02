@@ -1,5 +1,5 @@
 # Poslanske plače
-Toni Gril, Primož Dolžan  
+  
 `r Sys.Date()`  
 
 

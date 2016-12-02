@@ -1,7 +1,7 @@
 ---
 title: "Poslanske plače"
 subtitle: "Pod črto"
-author: "Toni Gril, Primož Dolžan"
+author: ""
 date: "`r Sys.Date()`"
 output:
   tint::tintHtml: 
