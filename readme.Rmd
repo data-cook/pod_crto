@@ -1,0 +1,23 @@
+---
+title: "ReadMe"
+subtitle: "Pod črto"
+author: "Toni Gril, Primož Dolžan"
+date: "`r Sys.Date()`"
+output:
+  tint::tintHtml: 
+     self_contained: TRUE
+#bibliography: skeleton.bib
+link-citations: no
+---
+
+```{r setup, include=FALSE}
+library(tint)
+# invalidate cache when the package version changes
+knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tint'))
+options(htmltools.dir.version = FALSE)
+```
+
+# Pod črto
+
+Osnovni read me.
+
