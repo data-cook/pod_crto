@@ -2,13 +2,10 @@ library(tidyverse)
 library(forcats)
 library(tidyr)
 library(viridis)
+#library(ggiraphExtra)
+#library(ggiraph)
 load(file = "./data/Place_2010_2014.RData")
 source("./functions/ggplot_tema.R")
-
-povprecna.izplacila <- place.2010.2014.long %>%
-  group_by(placilo, leto) %>%
-  summarise(`Povprečna vrednost` = round(mean(`Povprečna vrednost`, na.rm=T),2)) %>%
-  ungroup()
 
 poslanci <- place.2010.2014.long %>%
   filter(opis_delovnega_mesta_z370opis == "POSLANEC" & placilo == "placa" & vrednost > 0)
@@ -34,7 +31,6 @@ g.povprecna.placa <- ggplot(poslanci.povprecna.placa.leto, aes(x=leto, y=`Povpre
 ggsave("./Place/grafi/g.povprecna.placa.png", g.povprecna.placa, width = 306, height = 142, units = "mm", dpi = 300)
 
 
-
 g01.povprecna.placa <- ggplot(poslanci, aes(x=leto, y=`Povprečna vrednost`)) +
   geom_violin(aes(fill = leto)) +
   geom_jitter(height = 0,size = 1.5 ) +
@@ -54,7 +50,34 @@ g01.povprecna.placa <- ggplot(poslanci, aes(x=leto, y=`Povprečna vrednost`)) +
 
 ggsave("./Place/grafi/g01.povprecna.placa.png", g01.povprecna.placa, width = 306, height = 142, units = "mm", dpi = 300)
 
-#############################
+povprecna.izplacila.dodatkov <- place.2010.2014.long %>%
+  filter(placilo != "placa" & vrednost !=0) %>%
+  group_by(placilo, leto) %>%
+  summarise(`Povprečna vrednost` = round(mean(`Povprečna vrednost`, na.rm=T),2)) %>%
+  ungroup()
+
+
+g02.povprecna.izplacila.dodatkov <- povprecna.izplacila.dodatkov %>%
+  filter(leto == "2010") %>%
+  ggplot(., aes(x=placilo, y=`Povprečna vrednost`)) +
+  geom_bar(stat="identity") +
+  facet_wrap(~leto, scales = "free", nrow = 1) +
+  geom_label(aes(label=`Povprečna vrednost`)) +
+  labs(title = "",
+       subtitle="",
+       x = "",
+       y="",
+       caption = "Vir podatkov:\nhttps://podcrto.si/podatkovne-zbirke/\nhttp://resources.podcrto.si/dodatkizaobjavo.rar") +
+  datacook_theme() +
+  theme(legend.title = element_blank(),
+        legend.position = "bottom",
+        legend.direction = "horizontal",
+        axis.text.x = element_text(size = 10, angle = 45, hjust = 1))
+
+ggsave("./Place/grafi/g02.povprecna.izplacila.dodatkov.png", g02.povprecna.izplacila.dodatkov, width = 306, height = 142, units = "mm", dpi = 300)
+
+
+
 
 skupina.delovega.mesta <- place.2010.2014 %>%
   mutate(povprecna.placa = placa / mesecev) %>%
