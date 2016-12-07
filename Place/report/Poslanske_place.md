@@ -15,7 +15,7 @@
 
 
 ### Malo drugače
-<img src="Poslanske_place_files/figure-html/Malo drugače-1.png" width="95%"  style="display: block; margin: auto;" />
+<img src="Poslanske_place_files/figure-html/Malo drugace-1.png" width="95%"  style="display: block; margin: auto;" />
 
 ## Dodatki
 <img src="Poslanske_place_files/figure-html/Dodatki-1.png" width="95%"  style="display: block; margin: auto;" />
