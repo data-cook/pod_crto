@@ -21,23 +21,31 @@ load(file = "../data/Poslanske_place.RData")
 library(tidyverse)
 library(forcats)
 library(tidyr)
+library(plotly)
 ```
 
-# Povprečne plače vodilnih uslužbencev v javnem sektorju v 2010 – 2014
+#
 
-## Poslanci
+## Po skupini delovnega mesta
 
-```{r "povprecne place", message=F, echo=F, warning=F, fig.width = 12, fig.asp = 0.58, out.width="95%", fig.align='center'}
-g.povprecna.placa
-```
-
-### Malo drugače
-```{r "01 povprecne place", message=F, echo=F, warning=F, fig.width = 12, fig.asp = 0.58, out.width="95%", fig.align='center'}
-g01.povprecna.placa
-```
-
-
-## Po skupinah delovnega mesta
-```{r "skupina delovnega mesta", message=F, echo=F, warning=F, fig.width = 12, fig.asp = 0.58, out.width="95%", fig.align='center'}
+```{r "Po skupini delovnega mesta", message=F, echo=F, warning=F, fig.width = 12, fig.asp = 0.58, out.width="95%", fig.align='center'}
 g.povprecna.placa.skupina
 ```
+
+## Poslanci
+```{r "Poslanci", message=F, echo=F, warning=F, fig.width = 12, fig.asp = 0.58, out.width="95%", fig.align='center'}
+g.povprecna.placa.poslanci
+```
+
+
+### Malo drugače
+```{r "Malo drugače", message=F, echo=F, warning=F, fig.width = 12, fig.asp = 0.58, out.width="95%", fig.align='center'}
+g01.povprecna.placa.poslanci
+```
+
+## Dodatki
+```{r "Dodatki", message=F, echo=F, warning=F, fig.width = 14, fig.asp = 0.58, out.width="95%", fig.align='center'}
+g02.povprecna.izplacila.dodatkov
+```
+
+
